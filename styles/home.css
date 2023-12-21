@@ -24,7 +24,6 @@ body {
     margin-right: 10px;
 }
 
-
 .hero__section {
     background-color: #f1f1f1;
     text-align: center;
@@ -38,9 +37,19 @@ body {
 }
 
 .hero__section h2 {
-    font-size: 3rem;
+    padding-left: 5%;
+    flex-basis: 40%;
+    line-height: 1.1;
+    font-size: 4.2rem;
+    font-weight: 700;
+    display: flex;
+    text-shadow: 2px 2px 10px #845695;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    font-size: 4.2rem;
     margin-bottom: 20px;
-    
+
 }
 
 .room__container {

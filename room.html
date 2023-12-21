@@ -29,6 +29,12 @@
             </a>
         </div>
 
+        <div id="random_topic_generator" class="random-topic-generator">
+            <input type="text" id="user_input" placeholder="Enter topics, separated by commas">
+            <button onclick="generateRandomTopic()">Generate Random Topic</button>
+            <p id="random_topic">Click the button to generate a random topic</p>
+        </div>
+
         <div id="nav__links">
             <button id="chat__button"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                     fill="#ede0e0" clip-rule="evenodd">
@@ -45,6 +51,46 @@
             </a>
         </div>
     </header>
+
+    <script>
+        const predefinedTopics = [
+            "Technology and Society",
+            "Future of Work",
+            "Climate Change",
+            "Artificial Intelligence",
+            "Space Exploration",
+            // Add more topics as needed
+        ];
+    
+        function generateRandomTopic() {
+            const userInput = document.getElementById("user_input").value;
+            const topics = userInput ? userInput.split(",").map(topic => topic.trim()) : predefinedTopics;
+    
+            const randomTopicElement = document.getElementById("random_topic");
+    
+            // Reset background color
+            randomTopicElement.style.backgroundColor = '';
+    
+            if (topics.length > 0) {
+                randomizeAndDisplayTopic(topics, randomTopicElement);
+            } else {
+                alert("Please enter at least one topic.");
+            }
+        }
+    
+        function randomizeAndDisplayTopic(topics, targetElement) {
+            const randomizationInterval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * topics.length);
+                const randomTopic = topics[randomIndex];
+                targetElement.textContent = randomTopic;
+            }, 100);
+    
+            setTimeout(() => {
+                clearInterval(randomizationInterval);
+                targetElement.style.backgroundColor = '#262625';
+            }, 3000);
+        }
+    </script>
 
     <main class="container">
         <div id="room__container">

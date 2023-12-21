@@ -13,6 +13,92 @@
 
 <body>
 
+
+
+
+    <header id="nav">
+        <div class="nav--list">
+            <button id="members__button">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                    <path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#ede0e0">
+                        <path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z" />
+                </svg>
+            </button>
+            <a href="index.html">
+                <h3 id="logo">
+                    <!-- <img src="./images/logo.png" alt="Site Logo"> -->
+                    <span>Talkative Tribe</span>
+                </h3>
+            </a>
+        </div>
+        <div id="random_topic_generator" class="random-topic-generator">
+            <input type="text" id="user_input" placeholder="Enter topics, separated by commas">
+            <button onclick="generateRandomTopic()">Generate Random Topic</button>
+            <p id="random_topic">Click the button to generate a random topic</p>
+        </div>
+    </header>
+    
+    <script>
+        const predefinedTopics = [
+            "Technology and Society",
+            "Future of Work",
+            "Climate Change",
+            "Artificial Intelligence",
+            "Space Exploration",
+            // Add more topics as needed
+        ];
+    
+        function generateRandomTopic() {
+            const userInput = document.getElementById("user_input").value;
+            const topics = userInput ? userInput.split(",").map(topic => topic.trim()) : predefinedTopics;
+    
+            const randomTopicElement = document.getElementById("random_topic");
+    
+            // Reset background color
+            randomTopicElement.style.backgroundColor = '';
+    
+            if (topics.length > 0) {
+                randomizeAndDisplayTopic(topics, randomTopicElement);
+            } else {
+                alert("Please enter at least one topic.");
+            }
+        }
+    
+        function randomizeAndDisplayTopic(topics, targetElement) {
+            const randomizationInterval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * topics.length);
+                const randomTopic = topics[randomIndex];
+                targetElement.textContent = randomTopic;
+            }, 100);
+    
+            setTimeout(() => {
+                clearInterval(randomizationInterval);
+                targetElement.style.backgroundColor = '#262625';
+            }, 3000);
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
     <header id="nav">
         <div class="nav--list">
             <button id="members__button">
@@ -24,7 +110,7 @@
             <a href="index.html" />
             <h3 id="logo">
                 <!-- <img src="./images/logo.png" alt="Site Logo"> -->
-                <span>Talkative Tribe</span>
+                <!-- <span>Talkative Tribe</span>
             </h3>
             </a>
         </div>
@@ -44,7 +130,7 @@
                 </svg>
             </a>
         </div>
-    </header>
+    </header>   -->
 
     <main class="container">
         <div id="room__container">
